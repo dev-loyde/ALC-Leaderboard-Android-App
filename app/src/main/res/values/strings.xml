@@ -1,7 +1,10 @@
 <resources>
-  <string name="app_name">Lidboard</string>
+  <string name="app_name">Lid Board</string>
   <string name="tab_text_1">Tab 1</string>
   <string name="tab_text_2">Tab 2</string>
   <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="learning_leaders_badge_image">learning leaders badge image</string>
+  <string name="learning_leaders_detail_text">%1$d learning hours, %2$s</string>
+    <string name="board_item_image_description">badge image of a learner</string>
 </resources>

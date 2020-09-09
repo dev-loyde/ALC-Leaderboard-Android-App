@@ -7,10 +7,9 @@ import com.devloyde.lidboard.R
 import com.devloyde.lidboard.databinding.BoardItemBinding
 import com.devloyde.lidboard.models.LearningItem
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.board_item.view.*
 
-class LearningAdapter(private val items: List<LearningItem>) :
-    RecyclerView.Adapter<LearningAdapter.LearningViewHolder>() {
+class BoardAdapter(private val items: List<LearningItem>) :
+    RecyclerView.Adapter<BoardAdapter.LearningViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LearningViewHolder {
         val inflater: LayoutInflater = LayoutInflater.from(parent.context)

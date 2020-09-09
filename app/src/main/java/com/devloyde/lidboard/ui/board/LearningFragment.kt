@@ -9,7 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.devloyde.lidboard.R
-import com.devloyde.lidboard.adapters.LearningAdapter
+import com.devloyde.lidboard.adapters.BoardAdapter
 import com.devloyde.lidboard.databinding.FragmentLearningBinding
 import com.devloyde.lidboard.models.LearningItem
 
@@ -33,7 +33,7 @@ class LearningFragment : Fragment() {
     }
 
     private fun initLearningRecyclerView() {
-        val adapter = LearningAdapter(mockData())
+        val adapter = BoardAdapter(mockData())
         recyclerView.adapter = adapter
         recyclerView.setHasFixedSize(false)
         recyclerView.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)

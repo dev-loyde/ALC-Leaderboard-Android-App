@@ -42,18 +42,18 @@ class LearningFragment : Fragment() {
 
     private fun mockData(): List<LearningItem> {
         return listOf(
-            LearningItem("Thad",23,"Nigeria",R.drawable.skill_iq_trimmed),
-            LearningItem("Flozzy",44,"Cotonu",R.drawable.skill_iq_trimmed),
-            LearningItem("Judy",200,"Uk",R.drawable.skill_iq_trimmed),
-            LearningItem("Thad",23,"Nigeria",R.drawable.skill_iq_trimmed),
-            LearningItem("Flozzy",44,"Cotonu",R.drawable.skill_iq_trimmed),
-            LearningItem("Judy",200,"Uk",R.drawable.skill_iq_trimmed),
-            LearningItem("Thad",23,"Nigeria",R.drawable.skill_iq_trimmed),
-            LearningItem("Flozzy",44,"Cotonu",R.drawable.skill_iq_trimmed),
-            LearningItem("Judy",200,"Uk",R.drawable.skill_iq_trimmed),
-            LearningItem("Thad",23,"Nigeria",R.drawable.skill_iq_trimmed),
-            LearningItem("Flozzy",44,"Cotonu",R.drawable.skill_iq_trimmed),
-            LearningItem("Judy",200,"Uk",R.drawable.skill_iq_trimmed)
+            LearningItem("Thad",23,"Nigeria",R.drawable.top_learners),
+            LearningItem("Flozzy",44,"Cotonu",R.drawable.top_learners),
+            LearningItem("Judy",200,"Uk",R.drawable.top_learners),
+            LearningItem("Thad",23,"Nigeria",R.drawable.top_learners),
+            LearningItem("Flozzy",44,"Cotonu",R.drawable.top_learners),
+            LearningItem("Judy",200,"Uk",R.drawable.top_learners),
+            LearningItem("Thad",23,"Nigeria",R.drawable.top_learners),
+            LearningItem("Flozzy",44,"Cotonu",R.drawable.top_learners),
+            LearningItem("Judy",200,"Uk",R.drawable.top_learners),
+            LearningItem("Thad",23,"Nigeria",R.drawable.top_learners),
+            LearningItem("Flozzy",44,"Cotonu",R.drawable.top_learners),
+            LearningItem("Judy",200,"Uk",R.drawable.top_learners)
         )
     }
 }

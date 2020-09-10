@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
@@ -30,6 +32,8 @@ class BoardFragment : Fragment() {
     private lateinit var boardTabLayout: TabLayout
     private lateinit var boardViewPager: ViewPager2
     private lateinit var toolbar: Toolbar
+    private lateinit var submitBtn: Button
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,8 +48,11 @@ class BoardFragment : Fragment() {
         //bind views before returning root
         bindViews()
         // set up navigation controller with toolbar
-        val navController = findNavController()
+        navController = findNavController()
         toolbar.setupWithNavController(navController)
+
+        // goto submission page
+        gotoSubmissionPage()
 
         return binding.root
     }
@@ -56,11 +63,12 @@ class BoardFragment : Fragment() {
         initBoardFragmentPager()
     }
 
-    //    bind variables to their respective view components
+    //bind variables to their respective view components
     private fun bindViews() {
         boardTabLayout = binding.boardTabLayout
         boardViewPager = binding.boardViewPager
         toolbar = binding.boardToolbar
+        submitBtn = binding.boardSubmitBtn
     }
 
     // Initialize Board FragmentPager Adapter, ViewPager and Tab layout with  data
@@ -86,5 +94,12 @@ class BoardFragment : Fragment() {
     private fun addBoardSections() {
         boardFragmentPagerAdapter.addFragment(LearningFragment())
         boardFragmentPagerAdapter.addFragment(SkillFragment())
+    }
+
+    //navigate to submission page
+    private fun gotoSubmissionPage() {
+        submitBtn.setOnClickListener {
+            navController.navigate(R.id.action_boardFragment_to_submissionFragment)
+        }
     }
 }

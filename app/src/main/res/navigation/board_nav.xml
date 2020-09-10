@@ -5,13 +5,22 @@
     android:id="@+id/board_nav"
     app:startDestination="@id/boardFragment">
 
-    <fragment
-        android:id="@+id/boardFragment"
-        android:name="com.devloyde.lidboard.ui.board.BoardFragment"
-        android:label="Leader Board" />
     <activity
         android:id="@+id/mainActivity"
         android:name="com.devloyde.lidboard.MainActivity"
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/boardFragment"
+        android:name="com.devloyde.lidboard.ui.board.BoardFragment"
+        android:label="Leader Board" >
+        <action
+            android:id="@+id/action_boardFragment_to_submissionFragment"
+            app:destination="@id/submissionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/submissionFragment"
+        android:name="com.devloyde.lidboard.ui.project.SubmissionFragment"
+        android:label=""
+        tools:layout="@layout/fragment_submission" />
 </navigation>

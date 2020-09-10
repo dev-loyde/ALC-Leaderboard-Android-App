@@ -36,6 +36,7 @@
                     android:layout_height="?attr/actionBarSize"
                     android:contentDescription="@string/gads_project_banner"
                     android:padding="8dp"
+                    android:layout_gravity="center"
                     android:src="@drawable/gads_trans_banner" />
 
             </androidx.appcompat.widget.Toolbar>
@@ -59,12 +60,13 @@
             app:layout_constraintVertical_chainStyle="packed">
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 android:id="@+id/firstNameInput"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@color/backgroundColorLight"
                 android:layout_margin="8dp"
+                app:boxBackgroundColor="@color/backgroundColorLight"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -75,12 +77,13 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 android:id="@+id/lastNameInput"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_margin="8dp"
-                android:background="@color/backgroundColorLight">
+                app:boxBackgroundColor="@color/backgroundColorLight">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -107,12 +110,13 @@
             android:baselineAligned="false">
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 android:id="@+id/email_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_margin="8dp"
-                android:background="@color/backgroundColorLight">
+                app:boxBackgroundColor="@color/backgroundColorLight">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/email"
@@ -140,23 +144,40 @@
             android:baselineAligned="false">
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 android:id="@+id/github_url_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_margin="8dp"
-                android:background="@color/backgroundColorLight">
+                app:boxBackgroundColor="@color/backgroundColorLight">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/github_url"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Project on GITHUB (link) " />
+                    android:hint="Project on GITHUB (link)" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/board_submit_btn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:padding="16dp"
+            android:background="@color/colorAccent"
+            android:backgroundTint="@color/colorAccent"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            android:textAlignment="center"
+            android:textColor="@android:color/primary_text_dark"
+            app:layout_constraintTop_toBottomOf="@id/github_url_container"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

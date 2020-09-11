@@ -4,7 +4,7 @@ data class LearningItem(
     val name: String,
     val hours: Int,
     val country:String,
-    val badgeUrl: Int
+    val badgeUrl: String
 )
 
 data class SkillItem(

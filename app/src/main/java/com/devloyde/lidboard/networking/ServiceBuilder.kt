@@ -6,22 +6,22 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object NetworkServiceBuilder {
-    const val BOARD_BASE_URL = "https://gadsapi.herokuapp.com"
-    private const val PROJECT_BASE_URL = "https://docs.google.com/forms/d/e/"
-    private var baseUrl: String? = null
+    private const val boardBaseUrl = "https://gadsapi.herokuapp.com/"
 
-    private val httpClient = OkHttpClient.Builder()
+    private val httpClient = OkHttpClient.Builder().addInterceptor(Interceptor(){
+        val request = it.request()
+            .newBuilder().addHeader("Subscription-Key","dcb377dcaa654d42852d79dd0b977247").build()
+        return@Interceptor it.proceed(request)
+    })
 
-    private val retrofit = Retrofit.Builder()
-        .baseUrl(baseUrl!!)
-        .addConverterFactory(GsonConverterFactory.create())
-        .client(httpClient.build())
-        .build()
 
-    fun<T> buildService(url:String,service: Class<T>):T{
-        baseUrl = url
-        return retrofit.create(service)
+
+    fun<T> buildBoardService(service: Class<T>):T{
+        return Retrofit.Builder()
+            .baseUrl(boardBaseUrl)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(httpClient.build())
+            .build().create(service)
     }
-
 
 }

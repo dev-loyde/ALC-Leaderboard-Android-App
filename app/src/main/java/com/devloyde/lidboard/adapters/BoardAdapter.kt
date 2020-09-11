@@ -8,8 +8,10 @@ import com.devloyde.lidboard.databinding.BoardItemBinding
 import com.devloyde.lidboard.models.LearningItem
 import com.squareup.picasso.Picasso
 
-class BoardAdapter(private val items: List<LearningItem>) :
+class BoardAdapter() :
     RecyclerView.Adapter<BoardAdapter.LearningViewHolder>() {
+
+    private val items: ArrayList<LearningItem> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LearningViewHolder {
         val inflater: LayoutInflater = LayoutInflater.from(parent.context)
@@ -19,6 +21,11 @@ class BoardAdapter(private val items: List<LearningItem>) :
 
     override fun getItemCount(): Int {
         return items.size
+    }
+
+    fun addLearningHours(learningHours: List<LearningItem>){
+        items.addAll(learningHours)
+        notifyDataSetChanged()
     }
 
     override fun onBindViewHolder(holder: LearningViewHolder, position: Int) {

@@ -3,14 +3,18 @@ package com.devloyde.lidboard.networking
 import com.devloyde.lidboard.models.LearningItem
 import com.devloyde.lidboard.models.SkillItem
 import retrofit2.Call
-import retrofit2.http.*
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
+import retrofit2.http.POST
+
 
 interface BoardEndpoints {
 
-    @GET("/api/hours")
+    @GET("api/hours")
     fun getLearningHours(): Call<List<LearningItem>>
 
-    @GET("/api/skilliq")
+    @GET("api/skilliq")
     fun getSkillIQ(): Call<List<SkillItem>>
 
 }

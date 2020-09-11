@@ -13,11 +13,12 @@ class ProjectViewModel : ViewModel() {
     private val projectRepository: ProjectRepository
     private val executor = Executors.newFixedThreadPool(3)
 
+
     init {
         projectRepository = ProjectRepository.getProjectRepository(executor)
     }
 
-    fun submitProject(project: ProjectItem) {
-        projectRepository.submitProject(project)
+    fun submitProject(project: ProjectItem) : LiveData<Boolean> {
+        return projectRepository.submitProject(project)
     }
 }

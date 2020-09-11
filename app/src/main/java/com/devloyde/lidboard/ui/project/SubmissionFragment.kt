@@ -5,26 +5,27 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.observe
 import androidx.navigation.NavController
 import com.devloyde.lidboard.R
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.devloyde.lidboard.databinding.FragmentSubmissionBinding
+import com.devloyde.lidboard.databinding.SubmissionConfirmationBinding
+import com.devloyde.lidboard.databinding.SubmissionFailureBinding
+import com.devloyde.lidboard.databinding.SubmissionSuccessBinding
 import com.devloyde.lidboard.models.ProjectItem
 import com.devloyde.lidboard.viewmodels.BoardViewModel
 import com.devloyde.lidboard.viewmodels.ProjectViewModel
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.android.synthetic.main.fragment_submission.*
 
-/**
- * A simple [Fragment] subclass.
- * Use the [SubmissionFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SubmissionFragment : Fragment() {
 
     lateinit var binding: FragmentSubmissionBinding
@@ -41,8 +42,13 @@ class SubmissionFragment : Fragment() {
     private var lastName: String? = null
     private var emailAddress: String? = null
     private var githubUrl: String? = null
+    private lateinit var viewInflater:LayoutInflater
+    private var viewContainer: ViewGroup? = null
 
     private lateinit var submitBtn: MaterialButton
+    private lateinit var confirmationDialogBinding: SubmissionConfirmationBinding
+    private lateinit var successDialogBinding: SubmissionSuccessBinding
+    private lateinit var failureDialogBinding: SubmissionFailureBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +59,8 @@ class SubmissionFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        viewInflater = inflater
+        viewContainer = container
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_submission, container, false)
         navController = findNavController()
@@ -60,7 +68,7 @@ class SubmissionFragment : Fragment() {
         toolbar.setupWithNavController(navController)
 
         submitBtn.setOnClickListener {
-            submitProject()
+            checkValidations()
         }
         return binding.root
     }
@@ -76,37 +84,100 @@ class SubmissionFragment : Fragment() {
         }
     }
 
-    private fun submitProject() {
+    private fun checkValidations() {
         binding.apply {
             firstName = firstNameInput.editText?.text.toString()
             lastName = lastNameInput.editText?.text.toString()
             emailAddress = emailAddressInput.editText?.text.toString()
             githubUrl = githubUrlInput.editText?.text.toString()
         }
+        var validationErr = false
+
         if (firstName == "" || firstName == null) {
             firstNameInputLayout.isErrorEnabled = true
             firstNameInputLayout.error = "This field is required"
+            validationErr = true
         } else {
             firstNameInputLayout.isErrorEnabled = false
         }
         if (lastName == "" || lastName == null) {
             lastNameInputLayout.isErrorEnabled = true
             lastNameInputLayout.error = "This field is required"
+            validationErr = true
         } else {
             lastNameInputLayout.isErrorEnabled = false
         }
         if(emailAddress == "" || emailAddress == null) {
             emailAddressInputLayout.isErrorEnabled = true
             emailAddressInputLayout.error = "This field is required"
+            validationErr = true
         }else {
             emailAddressInputLayout.isErrorEnabled = false
         }
         if(githubUrl == "" || githubUrl == null) {
             githubUrlInputLayout.isErrorEnabled = true
             githubUrlInputLayout.error = "This field is required"
+            validationErr = true
         }else {
             githubUrlInputLayout.isErrorEnabled = false
         }
+
+        if(!validationErr){
+            submitProject(
+                ProjectItem(
+                emailAddress!!,
+                firstName!!,
+                lastName!!,
+                githubUrl!!
+            )
+            )
+        }
     }
+
+    private fun submitProject(project: ProjectItem){
+        confirmationDialogBinding =
+            SubmissionConfirmationBinding.inflate(viewInflater, viewContainer, false)
+        val dialog =
+            MaterialAlertDialogBuilder(requireContext()).setView(confirmationDialogBinding.root)
+                .setCancelable(false)
+                .show()
+        confirmationDialogBinding.cancel.setOnClickListener {
+            dismissDialog(dialog)
+        }
+        confirmationDialogBinding.button.setOnClickListener {
+            makeSubmission(project)
+            dismissDialog(dialog)
+        }
+
+
+    }
+
+    private fun makeSubmission(project: ProjectItem){
+        viewModel.submitProject(project).observe(viewLifecycleOwner){ success ->
+            when(success){
+                true -> {
+                    successDialogBinding =
+                        SubmissionSuccessBinding.inflate(viewInflater, viewContainer, false)
+                    val dialog =
+                        MaterialAlertDialogBuilder(requireContext()).setView(successDialogBinding.root)
+                            .setCancelable(true)
+                            .show()
+                }
+                false -> {
+                    failureDialogBinding =
+                        SubmissionFailureBinding.inflate(viewInflater, viewContainer, false)
+                    val dialog =
+                        MaterialAlertDialogBuilder(requireContext()).setView(failureDialogBinding.root)
+                            .setCancelable(true)
+                            .show()
+                }
+            }
+        }
+    }
+
+    private fun dismissDialog(dialog: AlertDialog) {
+        dialog.dismiss()
+    }
+
 
 }

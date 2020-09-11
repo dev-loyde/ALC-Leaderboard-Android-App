@@ -6,6 +6,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="learning_leaders_badge_image">learning leaders badge image</string>
     <string name="learning_leaders_detail_text">%1$d learning hours, %2$s</string>
+    <string name="skill_iq_detail_text">%1$d skill IQ Score, %2$s</string>
     <string name="board_item_image_description">badge image of a learner</string>
     <string name="gads_project_banner">GADS Project Banner</string>
 </resources>

@@ -13,11 +13,3 @@ data class SkillItem(
     val country:String,
     val badgeUrl: String
 )
-
-data class LearningHoursResponse(
-  val items: List<LearningItem>
-)
-
-data class SkillIqResponse(
-    val items: List<SkillItem>
-)

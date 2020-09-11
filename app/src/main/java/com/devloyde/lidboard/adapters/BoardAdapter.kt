@@ -71,7 +71,6 @@ class BoardAdapter:
         }
     }
 
-
     inner class LearningViewHolder(private val binding: BoardItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 

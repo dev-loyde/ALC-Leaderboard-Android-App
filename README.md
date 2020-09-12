@@ -1,4 +1,4 @@
-# GadsLeaderboard
+# ALC-GADS-Leaderboard-Android-App
 Andela Learning Community Associate Android Developer Practice Project
 
 # Task 

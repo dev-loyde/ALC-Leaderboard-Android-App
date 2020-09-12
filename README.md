@@ -18,7 +18,7 @@ The Application makes use of
 ![Pattern](screenshots/gads-leaderboard.png)
 
 # Application Downoad Link 
-https://github.com/dev-loyde/ALC-Leaderboard-Android-App/blob/master/app/release/app-release.apk
+[Download App Here] https://github.com/dev-loyde/ALC-Leaderboard-Android-App/raw/master/app/release/app-release.apk
 
 # Installation
 - Clone this repository and import into Android Studio
@@ -31,7 +31,7 @@ https://github.com/dev-loyde/ALC-Leaderboard-Android-App/blob/master/app/release
 - From Android Studio:
 - Build menu
 - Generate Signed APK...
-- Fill in the keystore information (you only need to do this once manually and then let Android Studio remember it)
+- Fill in the keystore information 
 
 # Contributing 
 - Fork it

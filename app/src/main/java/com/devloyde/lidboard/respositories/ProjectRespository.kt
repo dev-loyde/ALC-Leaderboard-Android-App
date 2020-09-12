@@ -1,17 +1,10 @@
 package com.devloyde.lidboard.respositories
 
 import android.util.Log
-import android.view.LayoutInflater
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.lifecycle.MutableLiveData
-import com.devloyde.lidboard.databinding.SubmissionConfirmationBinding
-import com.devloyde.lidboard.databinding.SubmissionFailureBinding
-import com.devloyde.lidboard.databinding.SubmissionSuccessBinding
-import com.devloyde.lidboard.models.LearningItem
 import com.devloyde.lidboard.models.ProjectItem
 import com.devloyde.lidboard.networking.NetworkServiceBuilder
 import com.devloyde.lidboard.networking.ProjectEndpoints
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.hadilq.liveevent.LiveEvent
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,10 +19,10 @@ class ProjectRepository(
     private val request =
         NetworkServiceBuilder.buildProjectService(ProjectEndpoints::class.java)
 
-    val success: MutableLiveData<Boolean> = MutableLiveData()
+    val success: LiveEvent<Boolean> = LiveEvent()
     val tag = "PROJECT_REPOSITORY - "
 
-    fun submitProject(fields: ProjectItem): MutableLiveData<Boolean> {
+    fun submitProject(fields: ProjectItem): LiveEvent<Boolean> {
         executors.execute {
             val call = request.submitProject(
                 fields.emailAddress,
@@ -38,7 +31,7 @@ class ProjectRepository(
                 fields.linkToProject
             )
 
-            call.enqueue(object: Callback<Void>{
+            call.enqueue(object : Callback<Void> {
 
                 override fun onFailure(call: Call<Void>, t: Throwable) {
                     Log.d(tag,"Error submitting project ${t.message} ${t.stackTrace}")

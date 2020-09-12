@@ -1,11 +1,9 @@
 package com.devloyde.lidboard.viewmodels
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.devloyde.lidboard.models.LearningItem
 import com.devloyde.lidboard.models.ProjectItem
-import com.devloyde.lidboard.models.SkillItem
 import com.devloyde.lidboard.respositories.ProjectRepository
+import com.hadilq.liveevent.LiveEvent
 import java.util.concurrent.Executors
 
 class ProjectViewModel : ViewModel() {
@@ -18,7 +16,7 @@ class ProjectViewModel : ViewModel() {
         projectRepository = ProjectRepository.getProjectRepository(executor)
     }
 
-    fun submitProject(project: ProjectItem) : LiveData<Boolean> {
+    fun submitProject(project: ProjectItem): LiveEvent<Boolean> {
         return projectRepository.submitProject(project)
     }
 }

@@ -6,8 +6,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/white"
-        android:padding="12dp"
-        android:paddingBottom="12dp">
+        android:padding="15dp"
+        android:paddingBottom="15dp">
 
 
         <ImageView
@@ -34,7 +34,7 @@
             app:layout_constraintEnd_toStartOf="@id/confirmation_mark"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/cancel" />
 
         <TextView
             android:id="@+id/confirmation_mark"
@@ -47,23 +47,23 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/confirmation_message"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/cancel" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/button"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="0dp"
+        <Button
+            android:id="@+id/board_submit_btn"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="76dp"
-            android:background="@color/backgroundColorLight"
-            android:text="@string/yes"
-            android:textAlignment="center"
-            android:textColor="@color/colorAccent"
+            android:minHeight="0dp"
+            android:padding="5dp"
+            android:text="Yes"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="70dp"
+            android:background="@drawable/outline_btn"
             app:layout_constraintEnd_toEndOf="@+id/confirmation_message"
             app:layout_constraintStart_toStartOf="@+id/confirmation_message"
             app:layout_constraintTop_toBottomOf="@+id/confirmation_message"
-            app:strokeColor="@color/colorAccent"
-            app:strokeWidth="5dp" />
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

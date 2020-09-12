@@ -5,7 +5,7 @@
     <item name="colorPrimary">@color/colorPrimary</item>
     <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     <item name="colorAccent">@color/colorAccent</item>
-    <item name="android:windowBackground">@drawable/launch</item>
+    <item name="android:windowBackground">@drawable/splash_screen_bg</item>
 <!--    <item name="android:navigationBarColor">@color/backgroundColorLight</item>-->
 <!--    <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>-->
   </style>

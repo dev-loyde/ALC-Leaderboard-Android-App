@@ -17,13 +17,14 @@
         app:srcCompat="@drawable/successful"
         android:contentDescription="@string/submission_success_image_icon" />
 
-    <com.google.android.material.textview.MaterialTextView
+    <TextView
         android:id="@+id/success_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:textSize="24sp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
         android:textStyle="bold"
+        android:textAlignment="center"
         android:text="@string/submission_successful"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -6,8 +6,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/white"
-        android:padding="15dp"
-        android:paddingBottom="15dp">
+        android:padding="12dp"
+        android:paddingBottom="12dp">
 
 
         <ImageView
@@ -53,17 +53,16 @@
             android:id="@+id/board_submit_btn"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:background="@drawable/outline_btn"
             android:minHeight="0dp"
             android:padding="5dp"
             android:text="Yes"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
             android:textColor="@android:color/black"
-            android:layout_marginTop="70dp"
-            android:background="@drawable/outline_btn"
-            app:layout_constraintEnd_toEndOf="@+id/confirmation_message"
+            app:layout_constraintEnd_toEndOf="@+id/confirmation_mark"
             app:layout_constraintStart_toStartOf="@+id/confirmation_message"
-            app:layout_constraintTop_toBottomOf="@+id/confirmation_message"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/confirmation_message" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

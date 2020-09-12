@@ -144,7 +144,7 @@ class SubmissionFragment : Fragment() {
         confirmationDialogBinding.cancel.setOnClickListener {
             dismissDialog(dialog)
         }
-        confirmationDialogBinding.button.setOnClickListener {
+        confirmationDialogBinding.boardSubmitBtn.setOnClickListener {
             makeSubmission(project)
             dismissDialog(dialog)
         }

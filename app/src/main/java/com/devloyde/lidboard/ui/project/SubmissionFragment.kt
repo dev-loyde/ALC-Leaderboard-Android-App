@@ -1,12 +1,15 @@
 package com.devloyde.lidboard.ui.project
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
+import androidx.core.os.HandlerCompat.postDelayed
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
@@ -162,6 +165,9 @@ class SubmissionFragment : Fragment() {
                         MaterialAlertDialogBuilder(requireContext()).setView(successDialogBinding.root)
                             .setCancelable(true)
                             .show()
+                    Handler(Looper.getMainLooper()).postDelayed({
+                       dialog.dismiss()
+                    }, 3000)
                 }
                 false -> {
                     failureDialogBinding =
@@ -170,6 +176,9 @@ class SubmissionFragment : Fragment() {
                         MaterialAlertDialogBuilder(requireContext()).setView(failureDialogBinding.root)
                             .setCancelable(true)
                             .show()
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        dialog.dismiss()
+                    }, 3000)
                 }
             }
         }

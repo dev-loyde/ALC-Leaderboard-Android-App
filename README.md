@@ -18,7 +18,7 @@ The Application makes use of
 ![Pattern](screenshots/gads-leaderboard.png)
 
 # Application Downoad Link 
-https://github.com/dev-loyde/ALC-Leaderboard-Android-App/releases/app-release.apk
+https://github.com/dev-loyde/ALC-Leaderboard-Android-App/blob/master/app/release/app-release.apk
 
 # Installation
 - Clone this repository and import into Android Studio

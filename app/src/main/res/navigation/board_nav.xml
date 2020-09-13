@@ -13,7 +13,11 @@
     <fragment
         android:id="@+id/boardFragment"
         android:name="com.devloyde.lidboard.ui.board.BoardFragment"
-        android:label="Leader Board" >
+        android:label="Leader Board"
+        app:enterAnim="@anim/fragment_fade_enter"
+        app:exitAnim="@anim/nav_default_enter_anim"
+        app:popEnterAnim="@anim/nav_default_exit_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim">
         <action
             android:id="@+id/action_boardFragment_to_submissionFragment"
             app:destination="@id/submissionFragment" />
@@ -22,5 +26,9 @@
         android:id="@+id/submissionFragment"
         android:name="com.devloyde.lidboard.ui.project.SubmissionFragment"
         android:label=""
+        app:enterAnim="@anim/fragment_fade_enter"
+        app:exitAnim="@anim/nav_default_enter_anim"
+        app:popEnterAnim="@anim/nav_default_exit_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim"
         tools:layout="@layout/fragment_submission" />
 </navigation>

@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/board_nav"
     app:startDestination="@id/boardFragment">
-
     <activity
         android:id="@+id/mainActivity"
         android:name="com.devloyde.lidboard.MainActivity"
